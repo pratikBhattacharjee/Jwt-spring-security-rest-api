@@ -46,10 +46,6 @@ public class JwtService {
                 .getPayload();
     }
 
-    public String extractUsername(String token){
-        return null;
-    }
-
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }
