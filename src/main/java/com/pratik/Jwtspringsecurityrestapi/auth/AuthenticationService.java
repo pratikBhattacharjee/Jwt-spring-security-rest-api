@@ -11,6 +11,7 @@ import com.pratik.Jwtspringsecurityrestapi.user.User;
 import com.pratik.Jwtspringsecurityrestapi.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.var;
 
 @Service
 @RequiredArgsConstructor
@@ -40,8 +41,16 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(RegisterRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        return null;
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+            request.getEmail(), 
+            request.getPassword()
+            ));
+        var user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
     
 }
