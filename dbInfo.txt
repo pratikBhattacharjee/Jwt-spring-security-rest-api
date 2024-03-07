@@ -1,0 +1,19 @@
+# Database Server Information
+
+# Database Type (e.g., MySQL, PostgreSQL, MongoDB)
+dbType: MySQL
+
+# Hostname or IP address of the database server
+host: 
+
+# Port number of the database server
+port: 
+
+# Database name
+dbName: 
+
+# Username for accessing the database
+username: root
+
+# Password for accessing the database
+password: ArigatoPratik2121
