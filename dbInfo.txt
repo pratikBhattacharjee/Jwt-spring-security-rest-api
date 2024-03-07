@@ -16,4 +16,4 @@ dbName:
 username: root
 
 # Password for accessing the database
-password: ArigatoPratik2121
+password: *****************
