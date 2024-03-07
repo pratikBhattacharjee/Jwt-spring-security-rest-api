@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/secured")
 public class DemoControllers {
-    @GetMapping
+    @GetMapping("/sample")
     public ResponseEntity<String> secured() {
         return ResponseEntity.ok("This is a secured endpoint");
     }

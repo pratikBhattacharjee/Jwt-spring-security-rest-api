@@ -11,7 +11,7 @@ import com.pratik.Jwtspringsecurityrestapi.user.User;
 import com.pratik.Jwtspringsecurityrestapi.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
-import lombok.var;
+
 
 @Service
 @RequiredArgsConstructor
