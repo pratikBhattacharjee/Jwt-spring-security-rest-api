@@ -40,12 +40,12 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(RegisterRequest request) {
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-            request.getEmail(), 
+            request.getUsername(), 
             request.getPassword()
             ));
-        var user = userRepository.findByEmail(request.getEmail())
+        var user = userRepository.findByEmail(request.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
